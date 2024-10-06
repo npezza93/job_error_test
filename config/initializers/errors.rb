@@ -6,7 +6,9 @@ class ErrorSubscriber
   end
 
   def report(error, **opts)
+    binding.irb
     puts "hi\n\n\n\n\n\n\n\n\n\n"
+    ::Error.create
     @events << [error, opts]
   end
 end

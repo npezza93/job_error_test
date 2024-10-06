@@ -1,8 +1,7 @@
 source "https://rubygems.org"
 
 # Use main development branch of Rails
-gem "rails", github: "rails/rails", branch: "main"
-# gem "rails", github: "npezza93/rails", branch: "job-error-reporter"
+gem "rails", github: "npezza93/rails", branch: "queue-test"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
 # Use sqlite3 as the database for Active Record
@@ -26,7 +25,8 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 
 # Use the database-backed adapters for Rails.cache, Active Job, and Action Cable
 gem "solid_cache"
-gem "solid_queue"
+gem "solid_queue", github: "rails/solid_queue", branch: "main"
+# gem "solid_queue", github: "npezza93/solid_queue", branch: "errors"
 gem "solid_cable"
 
 # Reduces boot times through caching; required in config/boot.rb
@@ -56,6 +56,8 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 end
+
+gem "sidekiq"
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]

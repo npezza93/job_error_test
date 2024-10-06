@@ -1,7 +1,7 @@
 GIT
-  remote: https://github.com/rails/rails.git
-  revision: ff42150d2f2c8df2b9fe21d97fea23fef3810949
-  branch: main
+  remote: https://github.com/npezza93/rails.git
+  revision: 6931e1417be5d5a4d9c8420e3a1755b7afc78922
+  branch: queue-test
   specs:
     actioncable (8.0.0.beta1)
       actionpack (= 8.0.0.beta1)
@@ -96,6 +96,19 @@ GIT
       rake (>= 12.2)
       thor (~> 1.0, >= 1.2.2)
       zeitwerk (~> 2.6)
+
+GIT
+  remote: https://github.com/rails/solid_queue.git
+  revision: a57660c109208b708d2f612e271e6ded8f6c4b63
+  branch: main
+  specs:
+    solid_queue (1.0.0)
+      activejob (>= 7.1)
+      activerecord (>= 7.1)
+      concurrent-ruby (>= 1.3.1)
+      fugit (~> 1.11.0)
+      railties (>= 7.1)
+      thor (~> 1.3.1)
 
 GEM
   remote: https://rubygems.org/
@@ -244,6 +257,8 @@ GEM
     rake (13.2.1)
     rdoc (6.7.0)
       psych (>= 4.0.0)
+    redis-client (0.22.2)
+      connection_pool
     regexp_parser (2.9.2)
     reline (0.5.10)
       io-console (~> 0.5)
@@ -285,6 +300,12 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sidekiq (7.3.2)
+      concurrent-ruby (< 2)
+      connection_pool (>= 2.3.0)
+      logger
+      rack (>= 2.2.4)
+      redis-client (>= 0.22.2)
     solid_cable (3.0.2)
       actioncable (>= 7.2)
       activejob (>= 7.2)
@@ -294,13 +315,6 @@ GEM
       activejob (>= 7.2)
       activerecord (>= 7.2)
       railties (>= 7.2)
-    solid_queue (1.0.0)
-      activejob (>= 7.1)
-      activerecord (>= 7.1)
-      concurrent-ruby (>= 1.3.1)
-      fugit (~> 1.11.0)
-      railties (>= 7.1)
-      thor (~> 1.3.1)
     sqlite3 (2.1.0-aarch64-linux-gnu)
     sqlite3 (2.1.0-aarch64-linux-musl)
     sqlite3 (2.1.0-arm-linux-gnu)
@@ -378,9 +392,10 @@ DEPENDENCIES
   rails!
   rubocop-rails-omakase
   selenium-webdriver
+  sidekiq
   solid_cable
   solid_cache
-  solid_queue
+  solid_queue!
   sqlite3 (>= 2.1)
   stimulus-rails
   thruster
